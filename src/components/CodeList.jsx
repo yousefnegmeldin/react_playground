@@ -1,6 +1,7 @@
 import React from 'react'
 
 import codeCards from '../data/cards'
+import CodeCard from './CodeCard'
 
 const CodeList = () => {
   return (
@@ -10,12 +11,15 @@ const CodeList = () => {
         </div>
         <div className='w-4/5 text-white pt-12 grid grid-cols-3'>
             {codeCards.map((card)=>
-                    <div key={card.cardNumber} className='text-center p-4'>
-                        <p>{card.title}</p>
-                        <p>{card.description}</p>
-                    </div>
+              <CodeCard 
+               key={card.cardNumber}
+               title={card.title} 
+               description={card.description} 
+               tags={card.cardTags}
+               cardLink={card.cardLink}
+               />
+               
             )}
-            {/* Make card component. */}
         </div>
     </div>
     

@@ -7,21 +7,24 @@ const cardTag = {
 const codeCards = [
     {
         cardNumber: 1,
-        title: "First card",
-        description: "First ever card!",
-        cardTags:[cardTag.useEffect,cardTag.useState],
+        title: "React Form",
+        description: "First ever card! so nice so easy so simple, so nice so easy so simple, so nice so easy so simple agsdfgafg gaysfgaysf fayayfagfgagsaf sy sygs  ",
+        cardTags:[cardTag.useEffect,cardTag.useState,cardTag.useRef,cardTag.useEffect],
+        cardLink:'/test1',
     },
     {
         cardNumber: 2,
-        title: "First card",
+        title: "useMemo Hook",
         description: "First ever card!",
         cardTags:[cardTag.useEffect,cardTag.useState],
+        cardLink:'/test1',
     },
     {
         cardNumber: 3,
         title: "First card",
         description: "First ever card!",
         cardTags:[cardTag.useEffect,cardTag.useState],
+        cardLink:'/test1',
     },
 ]
 
