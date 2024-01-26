@@ -16,7 +16,7 @@ const CodeList = () => {
                title={card.title} 
                description={card.description} 
                tags={card.cardTags}
-               cardLink={card.cardLink}
+               path={card.path}
                />
                
             )}
