@@ -4,6 +4,7 @@ import './App.css'
 import CodeList from './components/CodeList'
 import Navbar from './components/Navbar'
 import Component1 from './pages/Component1'
+import ComponentSample from './pages/ComponentSample'
 
 
 function App() {
