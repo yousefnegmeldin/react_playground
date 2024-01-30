@@ -7,25 +7,26 @@ const cardTag = {
 const codeCards = [
     {
         cardNumber: 1,
-        title: "React Form",
-        description: "First ever card! so nice so easy so simple, so nice so easy so simple, so nice so easy so simple agsdfgafg gaysfgaysf fayayfagfgagsaf sy sygs  ",
-        cardTags:[cardTag.useEffect,cardTag.useState,cardTag.useRef,cardTag.useEffect],
+        title: "useState Hook",
+        description: "Re-learned about the useState hook and good practices, along with what to avoid when using it.",
+        cardTags:[cardTag.useState],
         path:'Component1',
     },
     {
         cardNumber: 2,
-        title: "useMemo Hook",
-        description: "First ever card!",
+        title: "useEffect Hook",
+        description: "Re-learned about the useEffect hook and good practices such as cleaning up event listeners by returning a function in the useEffect hook.",
         cardTags:[cardTag.useEffect,cardTag.useState],
-        path:'/test1',
+        path:'Component2',
     },
     {
         cardNumber: 3,
-        title: "First card",
-        description: "First ever card!",
+        title: "Time Management Calculator",
+        description: "Time management calculator for students in following the ECTS system.",
         cardTags:[cardTag.useEffect,cardTag.useState],
-        path:'/test1',
+        path:'Component3',
     },
+
 ]
 
 

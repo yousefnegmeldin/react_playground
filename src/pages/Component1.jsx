@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const Component1 = () => {
 
@@ -18,8 +18,8 @@ const Component1 = () => {
   }
   
   const decrementCounterBad = () => {
-    setCounter2(counter-1);
-    setCounter2(counter-1);
+    setCounter2(counter2-1);
+    setCounter2(counter2-1);
   }
 
   return (
@@ -51,12 +51,13 @@ const Component1 = () => {
         <br></br>
         <br></br>
         <code>
-        setCounter((prevcounter)={'>'} prevcounter+1)
+        setCounter((prevCounter)={'>'} prevCounter+1)
         </code>
         <br></br>
         <br></br>
         This would then replace the old state with a completely new state using the previous value of the old state, it is best to follow the practice
-        that old states are immutable and should not be changed. This is because React uses the previous state to determine whether or not to re-render the component.
+        that old states are immutable and should not be changed. This is because React uses the previous state to determine whether or not to re-render the component. And the setter functions do not update the state,
+        they only update it when you pass an updater function.
         Therefore it can appear that nothing happens if you try to update the state more than once. Below is an example using the BAD way of setting states with the example of +2 and -2.
         It only increments by 1 because the it only sees the state at the start of the render.
         <br></br>
@@ -73,7 +74,7 @@ const Component1 = () => {
         <br></br>
         <br></br>
         <code>
-        setObject(prevobject={'>'}{'{...prevobject,prevobject.count:999}'})
+        setObject(prevObject={'>'}{'{...prevObject,prevObject.count:999}'})
         </code>
        
       </p>

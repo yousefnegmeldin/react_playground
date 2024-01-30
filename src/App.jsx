@@ -4,7 +4,7 @@ import './App.css'
 import CodeList from './components/CodeList'
 import Navbar from './components/Navbar'
 import Component1 from './pages/Component1'
-import ComponentSample from './pages/ComponentSample'
+import Component2 from './pages/Component2'
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<CodeList />} exact />
           <Route path='/playground/Component1' element={<Component1 />} exact />
+          <Route path='/playground/Component2' element={<Component2 />} exact />
         </Routes>
     </div>
   )
