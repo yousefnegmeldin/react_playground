@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const InputNumber = ({ min, max, value, setterFunction }) => {
+const InputNumber = ({ min, max, value, setterFunction, labelName }) => {
   const handleChange = (e) => {
     setterFunction(e.target.value);
   };
@@ -15,6 +15,7 @@ const InputNumber = ({ min, max, value, setterFunction }) => {
         value={value}
         onChange={handleChange}
       />
+      <label className=" px-4 text-center  text-xl">{labelName}</label>
     </div>
   );
 };
@@ -24,6 +25,7 @@ InputNumber.propTypes = {
   max: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
   setterFunction: PropTypes.func.isRequired,
+  labelName: PropTypes.string.isRequired,
 };
 
 export default InputNumber;
