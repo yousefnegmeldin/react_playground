@@ -14,6 +14,7 @@ const InputNumber = ({ min, max, value, setterFunction, labelName }) => {
         max={max}
         value={value}
         onChange={handleChange}
+        name={labelName}
       />
       <label className=" px-4 text-center  text-xl">{labelName}</label>
     </div>

@@ -16,7 +16,8 @@ const ComponentSample = () => {
     <div className="text-white h-full flex justify-center pt-[40px]">
       <div className="bg-slate-400 p-[40px] text-black rounded-lg">
         <h1 className="text-6xl font-bold">Time Management Calculator</h1>
-        <form className="flex flex-col pt-16">
+        <main className="flex flex-col pt-16">
+          <input type="hidden" value="prayer" />
           <InputNumber
             min={MIN_HOURS_VALUE}
             max={MAX_HOURS_VALUE}
@@ -52,7 +53,7 @@ const ComponentSample = () => {
             setterFunction={setStudyTime}
             labelName="Studying"
           />
-        </form>
+        </main>
       </div>
     </div>
   );
