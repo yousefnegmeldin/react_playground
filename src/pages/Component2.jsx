@@ -42,7 +42,7 @@ const Component2 = () => {
         . It is also useful for events such as resizing and so on. One thing I
         learned is that you can return a function in the useEffect hook which
         will be called when the component is unmounted, meaning you can clean up
-        after your event listeners so you don't have any memory leaks.
+        after your event listeners so you don&apos;t have any memory leaks.
       </p>
       <div className="mb-[20px]">
         Window Size: {windowSize} {'(Resize to see changes)'}

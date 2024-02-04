@@ -16,18 +16,19 @@ const ComponentSample = () => {
   const [studyTime, setStudyTime] = useState(8);
   const [surveyDone, setSurveyDone] = useState(false);
 
-  defaults.plugins.title.display = true;
   defaults.responsive = true;
+  defaults.color = 'white';
 
   return (
-    <div className="text-white h-auto flex justify-center pt-[40px]">
+    <div className="text-white h-auto flex justify-center pt-[40px] w-auto">
       <div className="bg-slate-400 p-[40px] mb-[40px] text-black rounded-lg ">
         <h1 className="text-6xl font-bold">Time Management Calculator</h1>
-        <main className="flex flex-col pt-16">
+        <main className="flex flex-col justify-center items-center pt-16">
           {surveyDone ? (
             <div>
-              <div className="w-1/2 text-black">
+              <div className="w-[400px] text-black">
                 <Doughnut
+                  responsive={true}
                   data={{
                     labels: [
                       'Sleep',
@@ -55,14 +56,6 @@ const ComponentSample = () => {
                         ],
                       },
                     ],
-                    options: {
-                      borderColor: '#00000',
-                      plugins: {
-                        title: {
-                          text: 'Time',
-                        },
-                      },
-                    },
                   }}
                 />
               </div>
