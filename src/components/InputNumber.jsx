@@ -1,7 +1,32 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-const InputNumber = ({ min, max, value, setterFunction, labelName }) => {
+const InputNumber = ({
+  min,
+  max,
+  value,
+  setterFunction,
+  labelName,
+  totalValues,
+}) => {
+  const [prevValue, setPrevValue] = useState(value);
+
   const handleChange = (e) => {
+    if (e.target.value === '') {
+      setterFunction(0);
+      return;
+    }
+    if (parseInt(e.target.value) > 168) {
+      alert("You can't fill in more than 168 hours");
+      return;
+    }
+    if (parseInt(e.target.value) + totalValues - prevValue > 168) {
+      alert("You can't fill in more than 168 hours part 2");
+      setterFunction(prevValue);
+      return;
+    }
+
+    setPrevValue(parseInt(e.target.value));
     setterFunction(parseInt(e.target.value));
   };
 
@@ -30,6 +55,7 @@ InputNumber.propTypes = {
   value: PropTypes.number.isRequired,
   setterFunction: PropTypes.func.isRequired,
   labelName: PropTypes.string.isRequired,
+  totalValues: PropTypes.number.isRequired,
 };
 
 export default InputNumber;

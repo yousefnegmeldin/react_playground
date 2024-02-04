@@ -6,8 +6,8 @@ import { Chart as ChartJS, defaults } from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
 const ComponentSample = () => {
-  const MIN_HOURS_VALUE = 1;
-  const MAX_HOURS_VALUE = 56;
+  const MIN_HOURS_VALUE = 0;
+  const MAX_HOURS_VALUE = 100;
 
   const [sleepTime, setSleepTime] = useState(8);
   const [sportTime, setSportTime] = useState(2);
@@ -28,9 +28,11 @@ const ComponentSample = () => {
     <div className="text-white h-auto flex justify-center pt-[40px] w-auto">
       <div className="bg-slate-400 p-[40px] mb-[40px] text-black rounded-lg ">
         <h1 className="text-6xl font-bold">Time Management Calculator</h1>
-        <h2 className="text-3xl  font-bold text-center pt-8">
-          <span className="text-blue-700">{totalValues}</span>/168 hours
-        </h2>
+        {surveyDone && (
+          <h2 className="text-3xl  font-bold text-center pt-8">
+            <span className="text-blue-700">{totalValues}</span>/168 hours
+          </h2>
+        )}
         <main className="flex flex-col justify-center items-center pt-16">
           {surveyDone ? (
             <div>
@@ -73,6 +75,7 @@ const ComponentSample = () => {
                 value={parseInt(sleepTime)}
                 setterFunction={setSleepTime}
                 labelName="Sleep"
+                totalValues={totalValues}
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
@@ -80,6 +83,7 @@ const ComponentSample = () => {
                 value={parseInt(sportTime)}
                 setterFunction={setSportTime}
                 labelName="Sports"
+                totalValues={totalValues}
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
@@ -87,6 +91,7 @@ const ComponentSample = () => {
                 value={parseInt(leisureTime)}
                 setterFunction={setLeisureTime}
                 labelName="Leisure"
+                totalValues={totalValues}
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
@@ -94,6 +99,7 @@ const ComponentSample = () => {
                 value={parseInt(choreTime)}
                 setterFunction={setChoreTime}
                 labelName="Chores"
+                totalValues={totalValues}
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
@@ -101,6 +107,7 @@ const ComponentSample = () => {
                 value={parseInt(studyTime)}
                 setterFunction={setStudyTime}
                 labelName="Studying"
+                totalValues={totalValues}
               />
             </div>
           ) : (
