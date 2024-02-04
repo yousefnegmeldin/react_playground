@@ -65,6 +65,7 @@ const TimeSurvey = ({ sleepSetter, sportSetter, surveyDoneSetter }) => {
 TimeSurvey.propTypes = {
   sleepSetter: propTypes.func.isRequired,
   sportSetter: propTypes.func.isRequired,
+  surveyDoneSetter: propTypes.func.isRequired,
 };
 
 export default TimeSurvey;
