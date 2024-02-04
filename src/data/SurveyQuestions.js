@@ -1,5 +1,10 @@
 const surveyQuestions = [
   {
+    question: 'How many Credit hours?',
+    title: 'Credit',
+  },
+
+  {
     question: 'How many hours do you sleep regularly per day?',
     values: ['5 Hours', '6 Hours', '7 Hours', '8 Hours'],
     title: 'Sleep',

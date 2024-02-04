@@ -21,11 +21,10 @@ const InputNumber = ({
       return;
     }
     if (parseInt(e.target.value) + totalValues - prevValue > 168) {
-      alert("You can't fill in more than 168 hours part 2");
+      alert("You can't fill in more than 168 hours in total.");
       setterFunction(prevValue);
       return;
     }
-
     setPrevValue(parseInt(e.target.value));
     setterFunction(parseInt(e.target.value));
   };

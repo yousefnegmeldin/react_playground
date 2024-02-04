@@ -2,13 +2,14 @@ import { useState, useEffect, createContext } from 'react';
 // import { Pie } from 'react-chartjs-2';
 import InputNumber from '../components/InputNumber';
 import TimeSurvey from '../components/TimeSurvey';
-import { Chart as ChartJS, defaults } from 'chart.js/auto';
+import { defaults } from 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 
 const ComponentSample = () => {
   const MIN_HOURS_VALUE = 0;
   const MAX_HOURS_VALUE = 100;
 
+  const [creditHours, setCreditHours] = useState(10);
   const [sleepTime, setSleepTime] = useState(8);
   const [sportTime, setSportTime] = useState(2);
   const [leisureTime, setLeisureTime] = useState(3);
@@ -38,7 +39,6 @@ const ComponentSample = () => {
             <div>
               <div className="w-[400px] text-black">
                 <Doughnut
-                  responsive={true}
                   data={{
                     labels: [
                       'Sleep',
@@ -69,6 +69,7 @@ const ComponentSample = () => {
                   }}
                 />
               </div>
+
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
@@ -115,6 +116,8 @@ const ComponentSample = () => {
               surveyDoneSetter={setSurveyDone}
               sleepSetter={setSleepTime}
               sportSetter={setSportTime}
+              creditHours={parseInt(creditHours)}
+              setterCreditHours={setCreditHours}
             />
           )}
         </main>

@@ -2,10 +2,15 @@ import { useState } from 'react';
 import propTypes from 'prop-types';
 import surveyQuestions from '../data/SurveyQuestions';
 
-const TimeSurvey = ({ sleepSetter, sportSetter, surveyDoneSetter }) => {
-  //
-
+const TimeSurvey = ({
+  sleepSetter,
+  sportSetter,
+  surveyDoneSetter,
+  creditHours,
+  setterCreditHours,
+}) => {
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [sliderValue, setSliderValue] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(
     surveyQuestions[questionIndex],
   );
@@ -19,7 +24,6 @@ const TimeSurvey = ({ sleepSetter, sportSetter, surveyDoneSetter }) => {
 
     if (index === surveyQuestions.length) {
       setIsDone(true);
-      console.log(questionIndex === surveyQuestions.length);
       surveyDoneSetter(true);
     }
 
@@ -33,27 +37,55 @@ const TimeSurvey = ({ sleepSetter, sportSetter, surveyDoneSetter }) => {
     }
   };
 
+  const handleSliderChange = (e) => {
+    setSliderValue(parseInt(e.target.value));
+    setterCreditHours(parseInt(e.target.value));
+  };
+
   return (
     <div className="font-bold ">
       <h1 className="text-blue-600 text-7xl text-center">Time Survey</h1>
       <div className="flex justify-center items-center">
         {!isDone && (
           <div>
-            <div className="text-3xl py-8">{currentQuestion.question}</div>
+            <p className="text-3xl py-8">{currentQuestion.question}</p>
+
             <div className="flex flex-col items-center ">
-              {currentQuestion.values.map((value) => {
-                return (
+              {currentQuestion.title !== 'Credit' ? (
+                currentQuestion.values.map((value) => {
+                  return (
+                    <button
+                      key={currentQuestion.values.indexOf(value)}
+                      onClick={() =>
+                        handleQuestionClick(currentQuestion.title, value)
+                      }
+                      className="bg-blue-500 border-black border-2 shadow-[#106ae0] shadow-md h-10 w-1/2 my-4"
+                    >
+                      {value}
+                    </button>
+                  );
+                })
+              ) : (
+                <div className="flex flex-col items-center justify-center">
+                  <input
+                    className="z-10"
+                    type="range"
+                    min={10}
+                    max={40}
+                    step={1}
+                    value={parseInt(creditHours)}
+                    name={'Credit Hours'}
+                    onChange={handleSliderChange}
+                  />
+                  <p className="text-7xl text-blue-600 ">{sliderValue}</p>
                   <button
-                    key={currentQuestion.values.indexOf(value)}
-                    onClick={() =>
-                      handleQuestionClick(currentQuestion.title, value)
-                    }
-                    className="bg-blue-500 border-black border-2 shadow-[#106ae0] shadow-md h-10 w-1/2 my-4"
+                    onClick={handleQuestionClick}
+                    className="bg-blue-600 border-2 p-2 mt-4 border-black"
                   >
-                    {value}
+                    Next
                   </button>
-                );
-              })}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -66,6 +98,8 @@ TimeSurvey.propTypes = {
   sleepSetter: propTypes.func.isRequired,
   sportSetter: propTypes.func.isRequired,
   surveyDoneSetter: propTypes.func.isRequired,
+  creditHours: propTypes.number.isRequired,
+  setterCreditHours: propTypes.func.isRequired,
 };
 
 export default TimeSurvey;
