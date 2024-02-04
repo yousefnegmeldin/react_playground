@@ -12,7 +12,7 @@ const ComponentSample = () => {
   const [leisureTime, setLeisureTime] = useState(3);
   const [choreTime, setChoreTime] = useState(1);
   const [studyTime, setStudyTime] = useState(8);
-  const surveyDone = false;
+  const [surveyDone, setSurveyDone] = useState(false);
 
   return (
     <div className="text-white h-5/6 flex justify-center pt-[40px]">
@@ -22,6 +22,7 @@ const ComponentSample = () => {
           {surveyDone ? (
             <div>
               <input type="hidden" value="prayer" />
+
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
@@ -59,7 +60,11 @@ const ComponentSample = () => {
               />
             </div>
           ) : (
-            <TimeSurvey />
+            <TimeSurvey
+              surveyDoneSetter={setSurveyDone}
+              sleepSetter={setSleepTime}
+              sportSetter={setSportTime}
+            />
           )}
         </main>
       </div>

@@ -1,24 +1,35 @@
-import { useEffect, useState } from 'react';
-
+import { useState } from 'react';
+import propTypes from 'prop-types';
 import surveyQuestions from '../data/SurveyQuestions';
-const TimeSurvey = () => {
+
+const TimeSurvey = ({ sleepSetter, sportSetter, surveyDoneSetter }) => {
+  //
+
   const [questionIndex, setQuestionIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(
     surveyQuestions[questionIndex],
   );
   const [isDone, setIsDone] = useState(false);
 
-  const handleQuestionClick = (questionTitle) => {
+  const handleQuestionClick = (questionTitle, value) => {
     //ASYNCHONOUS HANDLING OF UPDATING STATE WHICH IS VERY ANNOYING.
     setQuestionIndex((prev) => prev + 1);
     const index = questionIndex + 1;
     setCurrentQuestion(surveyQuestions[index]);
-    console.log('set');
-    console.log(questionIndex);
-    console.log(index);
+
     if (index === surveyQuestions.length) {
       setIsDone(true);
       console.log(questionIndex === surveyQuestions.length);
+      surveyDoneSetter(true);
+    }
+
+    switch (questionTitle) {
+      case 'Sleep':
+        sleepSetter(parseInt(value));
+        break;
+      case 'Sports':
+        sportSetter(parseInt(value));
+        break;
     }
   };
 
@@ -34,7 +45,9 @@ const TimeSurvey = () => {
                 return (
                   <button
                     key={currentQuestion.values.indexOf(value)}
-                    onClick={() => handleQuestionClick(currentQuestion.title)}
+                    onClick={() =>
+                      handleQuestionClick(currentQuestion.title, value)
+                    }
                     className="bg-blue-500 border-black border-2 shadow-[#106ae0] shadow-md h-10 w-1/2 my-4"
                   >
                     {value}
@@ -47,6 +60,11 @@ const TimeSurvey = () => {
       </div>
     </div>
   );
+};
+
+TimeSurvey.propTypes = {
+  sleepSetter: propTypes.func.isRequired,
+  sportSetter: propTypes.func.isRequired,
 };
 
 export default TimeSurvey;

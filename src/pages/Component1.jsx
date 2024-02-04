@@ -103,6 +103,10 @@ const Component1 = () => {
           setObject(prevObject={'>'}
           {'{...prevObject,prevObject.count:999}'})
         </code>
+        <br></br>
+        <br></br>
+        NO ONE TOLD ME THE STATE IS UPDATED ASYNCHRONOUSLY I SPENT 30 MINUTES
+        DEBUGGING A PROBLEM THAT HAD THIS.
       </p>
     </div>
   );
