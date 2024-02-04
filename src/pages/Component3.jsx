@@ -59,7 +59,6 @@ const ComponentSample = () => {
                   }}
                 />
               </div>
-
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}

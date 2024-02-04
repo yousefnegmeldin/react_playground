@@ -6,7 +6,7 @@ const InputNumber = ({ min, max, value, setterFunction, labelName }) => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 flex justify-center items-center">
       <input
         className="w-14 text-xl h-8 text center rounded-sm border-2 text-center shadow-xl"
         type="number"
@@ -16,7 +16,10 @@ const InputNumber = ({ min, max, value, setterFunction, labelName }) => {
         onChange={handleChange}
         name={labelName}
       />
-      <label className=" px-4 text-center  text-xl">{labelName}</label>
+      <label className=" px-4 text-center w-[100px] text-xl">{labelName}</label>
+      <div className="text-sm rounded-full text-center w-[60px] text-white font-bold bg-indigo-700 p-1">
+        {((value / 168) * 100).toFixed(2)}%
+      </div>
     </div>
   );
 };
