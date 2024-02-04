@@ -25,10 +25,10 @@ const TimeSurvey = ({ sleepSetter, sportSetter, surveyDoneSetter }) => {
 
     switch (questionTitle) {
       case 'Sleep':
-        sleepSetter(parseInt(value));
+        sleepSetter(parseInt(value) * 7);
         break;
       case 'Sports':
-        sportSetter(parseInt(value));
+        sportSetter(parseInt(value) * 7);
         break;
     }
   };

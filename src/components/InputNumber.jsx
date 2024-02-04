@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const InputNumber = ({ min, max, value, setterFunction, labelName }) => {
   const handleChange = (e) => {
-    setterFunction(e.target.value);
+    setterFunction(parseInt(e.target.value));
   };
 
   return (

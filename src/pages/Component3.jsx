@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, createContext } from 'react';
 // import { Pie } from 'react-chartjs-2';
 import InputNumber from '../components/InputNumber';
 import TimeSurvey from '../components/TimeSurvey';
@@ -7,7 +7,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 const ComponentSample = () => {
   const MIN_HOURS_VALUE = 1;
-  const MAX_HOURS_VALUE = 45;
+  const MAX_HOURS_VALUE = 56;
 
   const [sleepTime, setSleepTime] = useState(8);
   const [sportTime, setSportTime] = useState(2);
@@ -15,6 +15,11 @@ const ComponentSample = () => {
   const [choreTime, setChoreTime] = useState(1);
   const [studyTime, setStudyTime] = useState(8);
   const [surveyDone, setSurveyDone] = useState(false);
+  const [totalValues, setTotalValues] = useState(0);
+
+  useEffect(() => {
+    setTotalValues(sleepTime + sportTime + leisureTime + choreTime + studyTime);
+  }, [sleepTime, sportTime, leisureTime, choreTime, studyTime]);
 
   defaults.responsive = true;
   defaults.color = 'white';
@@ -23,6 +28,9 @@ const ComponentSample = () => {
     <div className="text-white h-auto flex justify-center pt-[40px] w-auto">
       <div className="bg-slate-400 p-[40px] mb-[40px] text-black rounded-lg ">
         <h1 className="text-6xl font-bold">Time Management Calculator</h1>
+        <h2 className="text-3xl  font-bold text-center pt-8">
+          <span className="text-blue-700">{totalValues}</span>/168 hours
+        </h2>
         <main className="flex flex-col justify-center items-center pt-16">
           {surveyDone ? (
             <div>
@@ -62,35 +70,35 @@ const ComponentSample = () => {
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
-                value={sleepTime}
+                value={parseInt(sleepTime)}
                 setterFunction={setSleepTime}
                 labelName="Sleep"
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
-                value={sportTime}
+                value={parseInt(sportTime)}
                 setterFunction={setSportTime}
                 labelName="Sports"
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
-                value={leisureTime}
+                value={parseInt(leisureTime)}
                 setterFunction={setLeisureTime}
                 labelName="Leisure"
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
-                value={choreTime}
+                value={parseInt(choreTime)}
                 setterFunction={setChoreTime}
                 labelName="Chores"
               />
               <InputNumber
                 min={MIN_HOURS_VALUE}
                 max={MAX_HOURS_VALUE}
-                value={studyTime}
+                value={parseInt(studyTime)}
                 setterFunction={setStudyTime}
                 labelName="Studying"
               />
