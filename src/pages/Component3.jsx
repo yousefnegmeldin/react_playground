@@ -19,6 +19,10 @@ const ComponentSample = () => {
   const [totalValues, setTotalValues] = useState(0);
 
   useEffect(() => {
+    setStudyTime(creditHours * 0.5);
+  }, [creditHours]);
+
+  useEffect(() => {
     setTotalValues(sleepTime + sportTime + leisureTime + choreTime + studyTime);
   }, [sleepTime, sportTime, leisureTime, choreTime, studyTime]);
 
